@@ -262,93 +262,86 @@ class RegisterScreen extends StatelessWidget {
                               }
                               return null;
                             },
-                            dropdownDecoratorProps: DropDownDecoratorProps(
-                              dropdownSearchDecoration: InputDecoration(
-                                filled: true,
-                                fillColor: AppColor.textFormFieldFilled,
-                                labelText: 'Gender',
-                                labelStyle: GoogleFonts.roboto().copyWith(
-                                    color: AppColor.shadedGrey,
-                                    fontWeight: FontWeight.w400),
-                                alignLabelWithHint: true,
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(12.0),
-                                  borderSide: BorderSide(
-                                    color: AppColor.grey.withOpacity(0.6),
-                                    width: 1.0,
-                                  ),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(12.0),
-                                  borderSide: BorderSide(
-                                    color: AppColor.green.withOpacity(0.6),
-                                    width: 1.0,
-                                  ),
-                                ),
-                                errorBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(12.0),
-                                  borderSide: BorderSide(
-                                    color: AppColor.roseMadder.withOpacity(0.6),
-                                    width: 1.0,
-                                  ),
-                                ),
-                                focusedErrorBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(12.0),
-                                  borderSide: BorderSide(
-                                    color: AppColor.roseMadder.withOpacity(0.6),
-                                    width: 1.0,
-                                  ),
-                                ),
-                              ),
-                              baseStyle: GoogleFonts.roboto().copyWith(
-                                color: AppColor.black,
-                                fontWeight: FontWeight.w400,
-                                fontSize: 14.0,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ),
-                            items: authenticationBloc.gender
-                                .map(
-                                  (e) => e,
-                                )
-                                .toList(),
-                            onChanged: (value) {
-                              authenticationBloc
-                                  .add(GenderChangeEvent(value.toString()));
-                            },
-                            onSaved: (value) {
-                              authenticationBloc
-                                  .add(GenderChangeEvent(value.toString()));
-                            },
-                            popupProps: PopupProps.menu(
-                                fit: FlexFit.loose,
-                                menuProps: const MenuProps(
-                                  backgroundColor: Colors.transparent,
-                                  elevation: 0,
-                                ),
-                                containerBuilder: (ctx, popupWidget) {
-                                  return Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    children: [
-                                      Flexible(
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            color: AppColor.textFormFieldFilled,
-                                            borderRadius:
-                                                BorderRadius.circular(12.0),
-                                          ),
-                                          child: popupWidget,
-                                        ),
-                                      ),
-                                    ],
-                                  );
-                                },
-                                showSearchBox: false,
-                                searchDelay: const Duration(milliseconds: 10)),
-                          ),
+                            // Directly use `dropdownDecoratorProps` if supported, otherwise use a similar approach
+                          //   dropdownDecoratorProps: DropDownDecoratorProps(
+                          //     dropdownSearchDecoration: InputDecoration(
+                          //       filled: true,
+                          //       fillColor: AppColor.textFormFieldFilled,
+                          //       labelText: 'Gender',
+                          //       labelStyle: GoogleFonts.roboto().copyWith(
+                          //         color: AppColor.shadedGrey,
+                          //         fontWeight: FontWeight.w400,
+                          //       ),
+                          //       alignLabelWithHint: true,
+                          //       enabledBorder: OutlineInputBorder(
+                          //         borderRadius: BorderRadius.circular(12.0),
+                          //         borderSide: BorderSide(
+                          //           color: AppColor.grey.withOpacity(0.6),
+                          //           width: 1.0,
+                          //         ),
+                          //       ),
+                          //       focusedBorder: OutlineInputBorder(
+                          //         borderRadius: BorderRadius.circular(12.0),
+                          //         borderSide: BorderSide(
+                          //           color: AppColor.green.withOpacity(0.6),
+                          //           width: 1.0,
+                          //         ),
+                          //       ),
+                          //       errorBorder: OutlineInputBorder(
+                          //         borderRadius: BorderRadius.circular(12.0),
+                          //         borderSide: BorderSide(
+                          //           color: AppColor.roseMadder.withOpacity(0.6),
+                          //           width: 1.0,
+                          //         ),
+                          //       ),
+                          //       focusedErrorBorder: OutlineInputBorder(
+                          //         borderRadius: BorderRadius.circular(12.0),
+                          //         borderSide: BorderSide(
+                          //           color: AppColor.roseMadder.withOpacity(0.6),
+                          //           width: 1.0,
+                          //         ),
+                          //       ),
+                          //     ),
+                          //   ),
+                          //   items: authenticationBloc.gender,
+                          //   onChanged: (value) {
+                          //     authenticationBloc
+                          //         .add(GenderChangeEvent(value.toString()));
+                          //   },
+                          //   onSaved: (value) {
+                          //     authenticationBloc
+                          //         .add(GenderChangeEvent(value.toString()));
+                          //   },
+                          //   popupProps: PopupProps.menu(
+                          //     fit: FlexFit.loose,
+                          //     menuProps: const MenuProps(
+                          //       backgroundColor: Colors.transparent,
+                          //       elevation: 0,
+                          //     ),
+                          //     containerBuilder: (ctx, popupWidget) {
+                          //       return Column(
+                          //         mainAxisSize: MainAxisSize.min,
+                          //         crossAxisAlignment: CrossAxisAlignment.end,
+                          //         children: [
+                          //           Flexible(
+                          //             child: Container(
+                          //               decoration: BoxDecoration(
+                          //                 color: AppColor.textFormFieldFilled,
+                          //                 borderRadius:
+                          //                     BorderRadius.circular(12.0),
+                          //               ),
+                          //               child: popupWidget,
+                          //             ),
+                          //           ),
+                          //         ],
+                          //       );
+                          //     },
+                          //     showSearchBox: false,
+                          //     searchDelay: const Duration(milliseconds: 10),
+                          //   ),
+                          // ),
                         ),
-                      ],
+                    )],
                     ),
                     // Row(
                     //   children: [
@@ -394,205 +387,205 @@ class RegisterScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.42,
-                          child: DropdownSearch<String>(
-                            dropdownDecoratorProps: DropDownDecoratorProps(
-                              dropdownSearchDecoration: InputDecoration(
-                                filled: true,
-                                fillColor: AppColor.textFormFieldFilled,
-                                labelText: 'Country',
-                                labelStyle: GoogleFonts.roboto().copyWith(
-                                    color: AppColor.shadedGrey,
-                                    fontWeight: FontWeight.w400),
-                                alignLabelWithHint: true,
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(12.0),
-                                  borderSide: BorderSide(
-                                    color: AppColor.grey.withOpacity(0.6),
-                                    width: 1.0,
-                                  ),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(12.0),
-                                  borderSide: BorderSide(
-                                    color: AppColor.green.withOpacity(0.6),
-                                    width: 1.0,
-                                  ),
-                                ),
-                              ),
-                              baseStyle: GoogleFonts.roboto().copyWith(
-                                color: AppColor.black,
-                                fontWeight: FontWeight.w400,
-                                fontSize: 14.0,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ),
-                            items: authenticationBloc.state.countriesList
-                                .map(
-                                  (e) => e.name,
-                                )
-                                .toList(),
-                            onChanged: (value) {
-                              authenticationBloc.add(GetStatesByCodeEvent(
-                                  authenticationBloc
-                                      .state
-                                      .countriesList[authenticationBloc
-                                          .state.countriesList
-                                          .indexWhere((element) =>
-                                              element.name == value)]
-                                      .isoCode));
-                              authenticationBloc
-                                  .add(SetSelectedCountryEvent(value!));
-                            },
-                            onSaved: (value) {
-                              authenticationBloc.add(GetStatesByCodeEvent(
-                                  authenticationBloc
-                                      .state
-                                      .countriesList[authenticationBloc
-                                          .state.countriesList
-                                          .indexWhere((element) =>
-                                              element.name == value)]
-                                      .isoCode));
-                              authenticationBloc
-                                  .add(SetSelectedCountryEvent(value!));
-                            },
-                            popupProps: PopupProps.menu(
-                                fit: FlexFit.loose,
-                                menuProps: const MenuProps(
-                                  backgroundColor: Colors.transparent,
-                                  elevation: 0,
-                                ),
-                                containerBuilder: (ctx, popupWidget) {
-                                  return Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    children: [
-                                      Flexible(
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            color: AppColor.textFormFieldFilled,
-                                            borderRadius:
-                                                BorderRadius.circular(12.0),
-                                          ),
-                                          child: popupWidget,
-                                        ),
-                                      ),
-                                    ],
-                                  );
-                                },
-                                showSearchBox: true,
-                                searchDelay: const Duration(milliseconds: 10)),
-                          ),
-                        ),
+                        // SizedBox(
+                        //   width: MediaQuery.of(context).size.width * 0.42,
+                        //   child: DropdownSearch<String>(
+                        //     dropdownDecoratorProps: DropDownDecoratorProps(
+                        //       dropdownSearchDecoration: InputDecoration(
+                        //         filled: true,
+                        //         fillColor: AppColor.textFormFieldFilled,
+                        //         labelText: 'Country',
+                        //         labelStyle: GoogleFonts.roboto().copyWith(
+                        //             color: AppColor.shadedGrey,
+                        //             fontWeight: FontWeight.w400),
+                        //         alignLabelWithHint: true,
+                        //         enabledBorder: OutlineInputBorder(
+                        //           borderRadius: BorderRadius.circular(12.0),
+                        //           borderSide: BorderSide(
+                        //             color: AppColor.grey.withOpacity(0.6),
+                        //             width: 1.0,
+                        //           ),
+                        //         ),
+                        //         focusedBorder: OutlineInputBorder(
+                        //           borderRadius: BorderRadius.circular(12.0),
+                        //           borderSide: BorderSide(
+                        //             color: AppColor.green.withOpacity(0.6),
+                        //             width: 1.0,
+                        //           ),
+                        //         ),
+                        //       ),
+                        //       baseStyle: GoogleFonts.roboto().copyWith(
+                        //         color: AppColor.black,
+                        //         fontWeight: FontWeight.w400,
+                        //         fontSize: 14.0,
+                        //         overflow: TextOverflow.ellipsis,
+                        //       ),
+                        //     ),
+                        //     // items: authenticationBloc.state.countriesList
+                        //     //     .map(
+                        //     //       (e) => e.name,
+                        //     //     )
+                        //     //     .toList(),
+                        //     onChanged: (value) {
+                        //       authenticationBloc.add(GetStatesByCodeEvent(
+                        //           authenticationBloc
+                        //               .state
+                        //               .countriesList[authenticationBloc
+                        //                   .state.countriesList
+                        //                   .indexWhere((element) =>
+                        //                       element.name == value)]
+                        //               .isoCode));
+                        //       authenticationBloc
+                        //           .add(SetSelectedCountryEvent(value!));
+                        //     },
+                        //     onSaved: (value) {
+                        //       authenticationBloc.add(GetStatesByCodeEvent(
+                        //           authenticationBloc
+                        //               .state
+                        //               .countriesList[authenticationBloc
+                        //                   .state.countriesList
+                        //                   .indexWhere((element) =>
+                        //                       element.name == value)]
+                        //               .isoCode));
+                        //       authenticationBloc
+                        //           .add(SetSelectedCountryEvent(value!));
+                        //     },
+                        //     popupProps: PopupProps.menu(
+                        //         fit: FlexFit.loose,
+                        //         menuProps: const MenuProps(
+                        //           backgroundColor: Colors.transparent,
+                        //           elevation: 0,
+                        //         ),
+                        //         containerBuilder: (ctx, popupWidget) {
+                        //           return Column(
+                        //             mainAxisSize: MainAxisSize.min,
+                        //             crossAxisAlignment: CrossAxisAlignment.end,
+                        //             children: [
+                        //               Flexible(
+                        //                 child: Container(
+                        //                   decoration: BoxDecoration(
+                        //                     color: AppColor.textFormFieldFilled,
+                        //                     borderRadius:
+                        //                         BorderRadius.circular(12.0),
+                        //                   ),
+                        //                   child: popupWidget,
+                        //                 ),
+                        //               ),
+                        //             ],
+                        //           );
+                        //         },
+                        //         showSearchBox: true,
+                        //         searchDelay: const Duration(milliseconds: 10)),
+                        //   ),
+                        // ),
                         const Spacer(),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.42,
-                          child: DropdownSearch<String>(
-                            dropdownDecoratorProps: DropDownDecoratorProps(
-                              dropdownSearchDecoration: InputDecoration(
-                                filled: true,
-                                fillColor: AppColor.textFormFieldFilled,
-                                labelText: 'State',
-                                labelStyle: GoogleFonts.roboto().copyWith(
-                                    color: AppColor.shadedGrey,
-                                    fontWeight: FontWeight.w400),
-                                alignLabelWithHint: true,
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(12.0),
-                                  borderSide: BorderSide(
-                                    color: AppColor.grey.withOpacity(0.6),
-                                    width: 1.0,
-                                  ),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(12.0),
-                                  borderSide: BorderSide(
-                                    color: AppColor.green.withOpacity(0.6),
-                                    width: 1.0,
-                                  ),
-                                ),
-                              ),
-                              baseStyle: GoogleFonts.roboto().copyWith(
-                                color: AppColor.black,
-                                fontWeight: FontWeight.w400,
-                                fontSize: 14.0,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ),
-                            items: authenticationBloc.state.statesList
-                                .map(
-                                  (e) => e.name,
-                                )
-                                .toList(),
-                            onChanged: (value) {
-                              authenticationBloc.add(GetCityByCodeEvent(
-                                  authenticationBloc
-                                      .state
-                                      .countriesList[authenticationBloc
-                                          .state.countriesList
-                                          .indexWhere((element) =>
-                                              element.name ==
-                                              authenticationBloc
-                                                  .state.selectedCountry)]
-                                      .isoCode,
-                                  authenticationBloc
-                                      .state
-                                      .statesList[authenticationBloc
-                                          .state.statesList
-                                          .indexWhere((element) =>
-                                              element.name == value)]
-                                      .isoCode));
-                              authenticationBloc
-                                  .add(SetSelectedStateEvent(value!));
-                            },
-                            onSaved: (value) {
-                              authenticationBloc.add(GetCityByCodeEvent(
-                                  authenticationBloc
-                                      .state
-                                      .countriesList[authenticationBloc
-                                          .state.countriesList
-                                          .indexWhere((element) =>
-                                              element.name == value)]
-                                      .isoCode,
-                                  authenticationBloc
-                                      .state
-                                      .statesList[authenticationBloc
-                                          .state.statesList
-                                          .indexWhere((element) =>
-                                              element.name == value)]
-                                      .isoCode));
-                              authenticationBloc
-                                  .add(SetSelectedStateEvent(value!));
-                            },
-                            popupProps: PopupProps.menu(
-                                fit: FlexFit.loose,
-                                menuProps: const MenuProps(
-                                  backgroundColor: Colors.transparent,
-                                  elevation: 0,
-                                ),
-                                containerBuilder: (ctx, popupWidget) {
-                                  return Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    children: [
-                                      Flexible(
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            color: AppColor.textFormFieldFilled,
-                                            borderRadius:
-                                                BorderRadius.circular(12.0),
-                                          ),
-                                          child: popupWidget,
-                                        ),
-                                      ),
-                                    ],
-                                  );
-                                },
-                                showSearchBox: true,
-                                searchDelay: const Duration(milliseconds: 10)),
-                          ),
-                        ),
+                        // SizedBox(
+                        //   width: MediaQuery.of(context).size.width * 0.42,
+                        //   child: DropdownSearch<String>(
+                        //     dropdownDecoratorProps: DropDownDecoratorProps(
+                        //       dropdownSearchDecoration: InputDecoration(
+                        //         filled: true,
+                        //         fillColor: AppColor.textFormFieldFilled,
+                        //         labelText: 'State',
+                        //         labelStyle: GoogleFonts.roboto().copyWith(
+                        //             color: AppColor.shadedGrey,
+                        //             fontWeight: FontWeight.w400),
+                        //         alignLabelWithHint: true,
+                        //         enabledBorder: OutlineInputBorder(
+                        //           borderRadius: BorderRadius.circular(12.0),
+                        //           borderSide: BorderSide(
+                        //             color: AppColor.grey.withOpacity(0.6),
+                        //             width: 1.0,
+                        //           ),
+                        //         ),
+                        //         focusedBorder: OutlineInputBorder(
+                        //           borderRadius: BorderRadius.circular(12.0),
+                        //           borderSide: BorderSide(
+                        //             color: AppColor.green.withOpacity(0.6),
+                        //             width: 1.0,
+                        //           ),
+                        //         ),
+                        //       ),
+                        //       baseStyle: GoogleFonts.roboto().copyWith(
+                        //         color: AppColor.black,
+                        //         fontWeight: FontWeight.w400,
+                        //         fontSize: 14.0,
+                        //         overflow: TextOverflow.ellipsis,
+                        //       ),
+                        //     ),
+                        //     items: authenticationBloc.state.statesList
+                        //         .map(
+                        //           (e) => e.name,
+                        //         )
+                        //         .toList(),
+                        //     onChanged: (value) {
+                        //       authenticationBloc.add(GetCityByCodeEvent(
+                        //           authenticationBloc
+                        //               .state
+                        //               .countriesList[authenticationBloc
+                        //                   .state.countriesList
+                        //                   .indexWhere((element) =>
+                        //                       element.name ==
+                        //                       authenticationBloc
+                        //                           .state.selectedCountry)]
+                        //               .isoCode,
+                        //           authenticationBloc
+                        //               .state
+                        //               .statesList[authenticationBloc
+                        //                   .state.statesList
+                        //                   .indexWhere((element) =>
+                        //                       element.name == value)]
+                        //               .isoCode));
+                        //       authenticationBloc
+                        //           .add(SetSelectedStateEvent(value!));
+                        //     },
+                        //     onSaved: (value) {
+                        //       authenticationBloc.add(GetCityByCodeEvent(
+                        //           authenticationBloc
+                        //               .state
+                        //               .countriesList[authenticationBloc
+                        //                   .state.countriesList
+                        //                   .indexWhere((element) =>
+                        //                       element.name == value)]
+                        //               .isoCode,
+                        //           authenticationBloc
+                        //               .state
+                        //               .statesList[authenticationBloc
+                        //                   .state.statesList
+                        //                   .indexWhere((element) =>
+                        //                       element.name == value)]
+                        //               .isoCode));
+                        //       authenticationBloc
+                        //           .add(SetSelectedStateEvent(value!));
+                        //     },
+                        //     popupProps: PopupProps.menu(
+                        //         fit: FlexFit.loose,
+                        //         menuProps: const MenuProps(
+                        //           backgroundColor: Colors.transparent,
+                        //           elevation: 0,
+                        //         ),
+                        //         containerBuilder: (ctx, popupWidget) {
+                        //           return Column(
+                        //             mainAxisSize: MainAxisSize.min,
+                        //             crossAxisAlignment: CrossAxisAlignment.end,
+                        //             children: [
+                        //               Flexible(
+                        //                 child: Container(
+                        //                   decoration: BoxDecoration(
+                        //                     color: AppColor.textFormFieldFilled,
+                        //                     borderRadius:
+                        //                         BorderRadius.circular(12.0),
+                        //                   ),
+                        //                   child: popupWidget,
+                        //                 ),
+                        //               ),
+                        //             ],
+                        //           );
+                        //         },
+                        //         showSearchBox: true,
+                        //         searchDelay: const Duration(milliseconds: 10)),
+                        //   ),
+                        // ),
                       ],
                     ),
                     // Row(
@@ -615,79 +608,79 @@ class RegisterScreen extends StatelessWidget {
                     const SizedBox(
                       height: 20.0,
                     ),
-                    DropdownSearch<String>(
-                      items: authenticationBloc.state.citiesList
-                          .map((e) => e.name)
-                          .toList(),
-                      autoValidateMode: AutovalidateMode.onUserInteraction,
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please select a city';
-                        }
-                        return null;
-                      },
-                      onChanged: (value) {
-                        if (value != null) {
-                          authenticationBloc.add(SetSelectedCityEvent(value));
-                        }
-                      },
-                      onSaved: (value) {
-                        if (value != null) {
-                          authenticationBloc.add(SetSelectedCityEvent(value));
-                        }
-                      },
-                      dropdownDecoratorProps: DropDownDecoratorProps(
-                        // Use if available
-                        dropdownSearchDecoration: InputDecoration(
-                          filled: true,
-                          fillColor: AppColor.textFormFieldFilled,
-                          labelText: 'City',
-                          labelStyle: GoogleFonts.roboto().copyWith(
-                            color: AppColor.shadedGrey,
-                            fontWeight: FontWeight.w400,
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12.0),
-                            borderSide: BorderSide(
-                              color: AppColor.grey.withOpacity(0.6),
-                              width: 1.0,
-                            ),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12.0),
-                            borderSide: BorderSide(
-                              color: AppColor.green.withOpacity(0.6),
-                              width: 1.0,
-                            ),
-                          ),
-                        ),
-                      ),
-                      popupProps: PopupProps.menu(
-                        fit: FlexFit.loose,
-                        showSearchBox: true,
-                        menuProps: const MenuProps(
-                          backgroundColor: Colors.transparent,
-                          elevation: 0,
-                        ),
-                        containerBuilder: (ctx, popupWidget) {
-                          return Column(
-                            mainAxisSize: MainAxisSize.min,
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              Flexible(
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: AppColor.textFormFieldFilled,
-                                    borderRadius: BorderRadius.circular(12.0),
-                                  ),
-                                  child: popupWidget,
-                                ),
-                              ),
-                            ],
-                          );
-                        },
-                      ),
-                    ),
+                    // DropdownSearch<String>(
+                    //   items: authenticationBloc.state.citiesList
+                    //       .map((e) => e.name)
+                    //       .toList(),
+                    //   autoValidateMode: AutovalidateMode.onUserInteraction,
+                    //   validator: (value) {
+                    //     if (value == null || value.isEmpty) {
+                    //       return 'Please select a city';
+                    //     }
+                    //     return null;
+                    //   },
+                    //   onChanged: (value) {
+                    //     if (value != null) {
+                    //       authenticationBloc.add(SetSelectedCityEvent(value));
+                    //     }
+                    //   },
+                    //   onSaved: (value) {
+                    //     if (value != null) {
+                    //       authenticationBloc.add(SetSelectedCityEvent(value));
+                    //     }
+                    //   },
+                    //   dropdownDecoratorProps: DropDownDecoratorProps(
+                    //     // Use if available
+                    //     dropdownSearchDecoration: InputDecoration(
+                    //       filled: true,
+                    //       fillColor: AppColor.textFormFieldFilled,
+                    //       labelText: 'City',
+                    //       labelStyle: GoogleFonts.roboto().copyWith(
+                    //         color: AppColor.shadedGrey,
+                    //         fontWeight: FontWeight.w400,
+                    //       ),
+                    //       enabledBorder: OutlineInputBorder(
+                    //         borderRadius: BorderRadius.circular(12.0),
+                    //         borderSide: BorderSide(
+                    //           color: AppColor.grey.withOpacity(0.6),
+                    //           width: 1.0,
+                    //         ),
+                    //       ),
+                    //       focusedBorder: OutlineInputBorder(
+                    //         borderRadius: BorderRadius.circular(12.0),
+                    //         borderSide: BorderSide(
+                    //           color: AppColor.green.withOpacity(0.6),
+                    //           width: 1.0,
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ),
+                    //   popupProps: PopupProps.menu(
+                    //     fit: FlexFit.loose,
+                    //     showSearchBox: true,
+                    //     menuProps: const MenuProps(
+                    //       backgroundColor: Colors.transparent,
+                    //       elevation: 0,
+                    //     ),
+                    //     containerBuilder: (ctx, popupWidget) {
+                    //       return Column(
+                    //         mainAxisSize: MainAxisSize.min,
+                    //         crossAxisAlignment: CrossAxisAlignment.end,
+                    //         children: [
+                    //           Flexible(
+                    //             child: Container(
+                    //               decoration: BoxDecoration(
+                    //                 color: AppColor.textFormFieldFilled,
+                    //                 borderRadius: BorderRadius.circular(12.0),
+                    //               ),
+                    //               child: popupWidget,
+                    //             ),
+                    //           ),
+                    //         ],
+                    //       );
+                    //     },
+                    //   ),
+                    // ),
 
                     Row(
                       children: [

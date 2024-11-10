@@ -75,7 +75,7 @@ class ServicesLocator {
     /// Home
 
   
-    sl.registerFactory(() => StoriesBloc());
+    // sl.registerFactory(() => StoriesBloc());
 
     sl.registerFactory(() => HomeBloc(
           sl(),
