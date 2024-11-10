@@ -1,0 +1,22 @@
+{
+  "login": "تسجيل الدخول",
+  "Sign In": "تسجيل الدخول",
+  "signUp": "اشتراك",
+  "loginText": "قم بتسجيل الدخول - لتعاصر الجيل الجديد من التعلم!",
+  "pleaseBeSureOfData": "رجاء تأكد من ادخال البيانات صحيحة",
+  "loginEmailLabel": "الايميل",
+  "loginPasswordLabel": "كلمة المرور",
+  "doYouForgetPasswordButton": "هل نسيت كلمة المرور؟",
+  "welcomeToClimatify": "مرحبا بكم في كلايمتفاي",
+  "climatifyCommunity": "مجتمع كلايمتفاي",
+  "haveAnAccountAlready": "هل لديك حساب بالفعل؟",
+  "orSignInWith": "أو تسجيل الدخول باستخدام",
+  "registerEmailLabel": "الايميل",
+  "registerPasswordLabel": "كلمة المرور",
+  "registerFirstNameLabel": "الاسم الأول",
+  "registerLastNameLabel": "اسم العائلة",
+  "registerPhoneLabel": "رقم الهاتف",
+  "registerUsernameLabel": "اسم المستخدم",
+  "registerDateOfBirthLabel": "تاريخ الميلاد",
+  "registerVerifyCodeButton": "التحقق من كود"
+}

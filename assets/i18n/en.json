@@ -1,0 +1,22 @@
+{
+  "login": "Login",
+  "signIn": "Sign In",
+  "signUp": "Sign Up",
+  "loginText": "Log in - to live the new generation of learning!",
+  "pleaseBeSureOfData": "Please make sure that you enter the data correctly",
+  "loginEmailLabel": "Email",
+  "loginPasswordLabel": "Password",
+  "doYouForgetPasswordButton": "Forgot your password?",
+  "welcomeToClimatify": "Welcome To Climatify",
+  "climatifyCommunity": "Climatify Community",
+  "haveAnAccountAlready": "Have an account already?",
+  "orSignInWith": "Or signin with",
+  "registerEmailLabel": "Email",
+  "registerPasswordLabel": "Password",
+  "registerFirstNameLabel": "First Name",
+  "registerLastNameLabel": "Last Name",
+  "registerPhoneLabel": "Phone Number",
+  "registerUsernameLabel": "Username",
+  "registerDateOfBirthLabel": "Date Of Birth",
+  "registerVerifyCodeButton": "Verify Code"
+}
